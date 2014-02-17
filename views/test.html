@@ -1,0 +1,8 @@
+<h1>Blog!</h1>
+<p>{{entries}}</p>
+{{#each entries}}
+   <p>
+      <a href="/article/{{id}}">{{title}}</a><br/>
+      Published: {{published}}
+   </p>
+{{/each}}

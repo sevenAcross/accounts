@@ -1,0 +1,48 @@
+<h1>{{title}}</h1>
+
+<div class="container-fluid">
+
+
+<div class="row"><strong>
+	<div class="col-sm-2" text-center>Date</div>
+	<div class="col-sm-1">Info</div>
+	<div class="col-sm-1" text-center>Debit</div>
+	<div class="col-sm-1 text-center">Credit</div>
+	<div class="col-sm-1 text-center">Balance</div>
+	<div class="col-sm-6"></div>
+</strong></div>
+
+{{#each transactions}}
+	<div class="row">
+		<div class="col-sm-2">
+			{{timestamp}}
+		</div>
+		<div class="col-sm-1">
+			{{name}}
+		</div>
+		<div class="col-sm-1" text-right>
+			{{#unless debit }}
+				{{amount}}
+			{{else}}
+				&nbsp;
+			{{/unless}}
+		</div>
+		<div class="col-sm-1 text-right">
+			{{#if debit }}
+			    {{amount}}
+			{{else}}
+				&nbsp;
+			{{/if}}
+		</div>
+		<div class="col-sm-1">
+			{{balance}}
+		</div>
+		<div class="col-sm-6"></div>
+	</div>
+{{else}}
+	<p>No Content</p>
+{{/each}}
+
+</div>
+
+<p/>
