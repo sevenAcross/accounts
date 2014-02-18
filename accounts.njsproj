@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{58559be2-36ba-434f-b81e-3f61aa0588c9}</ProjectGuid>
+    <ProjectHome />
+    <ProjectView>ShowAllFiles</ProjectView>
+    <StartupFile>app.js</StartupFile>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Content Include="package.json" />
+    <Content Include="README.md" />
+    <Compile Include="app.js" />
+    <Compile Include="lib\Account.js" />
+    <Compile Include="lib\AccountManager.js" />
+    <Compile Include="lib\Transaction.js" />
+    <Compile Include="routes\accounts.js" />
+    <Compile Include="routes\index.js" />
+    <Compile Include="routes\user.js" />
+    <Compile Include="test\accountManagerTest.js" />
+    <Compile Include="test\accountTest.js" />
+    <Compile Include="test\transactionTest.js" />
+    <Content Include="views\accounts.html" />
+    <Content Include="views\layout.html" />
+    <Content Include="views\test.html" />
+    <Content Include="views\transactions.html" />
+    <Content Include="public\stylesheets\style.css" />
+    <Content Include="public\bootstrap\css\bootstrap-responsive.css" />
+    <Content Include="public\bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="public\bootstrap\css\bootstrap.css" />
+    <Content Include="public\bootstrap\css\bootstrap.min.css" />
+    <Content Include="public\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="public\bootstrap\img\glyphicons-halflings.png" />
+    <Compile Include="public\bootstrap\js\bootstrap.js" />
+    <Compile Include="public\bootstrap\js\bootstrap.min.js" />
+    <Content Include="public\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="public\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="public\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="public\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="public\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Compile Include="public\bootstrap\dist\js\bootstrap.js" />
+    <Compile Include="public\bootstrap\dist\js\bootstrap.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="lib" />
+    <Folder Include="public\" />
+    <Folder Include="public\bootstrap\" />
+    <Folder Include="public\bootstrap\css" />
+    <Folder Include="public\bootstrap\dist\" />
+    <Folder Include="public\bootstrap\dist\css" />
+    <Folder Include="public\bootstrap\dist\fonts" />
+    <Folder Include="public\bootstrap\dist\js" />
+    <Folder Include="public\bootstrap\img" />
+    <Folder Include="public\bootstrap\js" />
+    <Folder Include="public\stylesheets" />
+    <Folder Include="routes" />
+    <Folder Include="test" />
+    <Folder Include="views" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

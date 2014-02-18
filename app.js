@@ -48,6 +48,10 @@ app.get ( '/api/transactions/:id', function ( req, res ) {
 	});
 });
 
+app.get ( '/', function ( req, res ) {
+	res.render ( 'accounts', { title:"My Accounts", accounts:manager.getAccounts() } );
+    });
+
 app.listen ( app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));
 });
