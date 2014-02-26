@@ -58,11 +58,11 @@ suite ( "Transfer between accounts", function () {
 		expect ( statement[1].amount ).to.equal ( 20.11 );
 		expect ( statement[1].debit ).to.equal ( true );
 		expect ( statement[1].timestamp ).to.equal ( moment().format ( 'D MMM YYYY' ) );
-		expect ( statement[1].balance ).to.equal ( 100.33 );
+		expect ( statement[1].balance ).to.equal ( 100.33 - 20.11 );
 		
 		expect ( statement[0].amount ).to.equal ( 50.00 );
 		expect ( statement[0].debit ).to.equal ( true );
-		expect ( statement[0].balance ).to.equal ( 100.33 - 20.11 );
+		expect ( statement[0].balance ).to.equal ( 100.33 - 20.11 - 50.00 );
 		
 		// Now add another transfer to credit the current account
 		manager.transfer ( 34.21, billsAccount, currentAccount );
@@ -156,7 +156,7 @@ suite ( "Get Accounts", function () {
 	});
 	
 	test ( "Simple Top Level Accounts ", function () {
-		manager = accountManager.create ();
+		var manager = accountManager.create ();
 
 		var currentAccount = manager.createAccount ( "Current", 100.4 );
 		var billsAccount   = manager.createAccount ( "Bills", 50 );
@@ -169,7 +169,7 @@ suite ( "Get Accounts", function () {
 	});
 	
 	test ( "Simple Sub Accounts ", function () {
-		manager = accountManager.create ();
+		var manager = accountManager.create ();
 
 		var currentAccount  = manager.createAccount ( "Current", 100 );
 		var billsAccount    = manager.createAccount ( "Bills", 100 );

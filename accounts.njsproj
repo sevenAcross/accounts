@@ -25,6 +25,7 @@
     <Compile Include="routes\accounts.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\user.js" />
+    <Compile Include="test.js" />
     <Compile Include="test\accountManagerTest.js" />
     <Compile Include="test\accountTest.js" />
     <Compile Include="test\transactionTest.js" />
