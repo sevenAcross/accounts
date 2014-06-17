@@ -16,12 +16,17 @@ app.use ( express.bodyParser () );
 app.use ( express.static ( 'public' ) );
 
 var manager = accountManager.create ();
-var currentAccount = manager.createAccount ( "Current", -1345.76 );
-var billsAccount   = manager.createAccount ( "Bills", 50 );
-var electricityAccount = manager.createSubAccount ( billsAccount, "Electricity", 100.00 );
-var gasAccount = manager.createSubAccount ( billsAccount, "Gas", 200.00 );
+var currentAccount = manager.createAccount ( null, "Current", -1345.76 );
+var billsAccount   = manager.createAccount ( null, "Bills", 50 );
+var electricityAccount = manager.createAccount ( billsAccount, "Electricity", 100.00 );
+var gasAccount = manager.createAccount ( billsAccount, "Gas", 200.00 );
 manager.transfer ( 50.00, gasAccount, electricityAccount );
-manager.transfer ( 25.00, electricityAccount, gasAccount );
+manager.transfer(25.00, electricityAccount, gasAccount);
+manager.transfer(1.23, currentAccount, gasAccount);
+manager.transfer(2.34, currentAccount, gasAccount);
+manager.transfer(3.45, currentAccount, gasAccount);
+manager.transfer(4.56, currentAccount, gasAccount);
+manager.transfer(5.67, currentAccount, gasAccount);
 
 hbs.registerHelper ( "negativeBalance", function ( balance ) {
 	if ( balance < 0 )
@@ -41,16 +46,36 @@ app.get ( '/api/accounts/:id', function ( req, res ) {
 		} );
 });
 
+app.post ( "/api/accounts", function ( req, res ) {
+    if ( ! req.body.hasOwnProperty ( 'parent' ) ||
+         ! req.body.hasOwnProperty ( 'name' ) ||
+         ! req.body.hasOwnProperty ( 'balance' ) ) {
+        res.statusCode = 400;
+        return res.send ( 'Error 400: Post Syntax incorrect.' );
+    }
+    
+    var parent = Number ( req.body.parent );
+    if ( isNaN ( parent ) == true )
+        parent = null;
+    manager.createAccount ( parent, req.body.name, Number ( req.body.balance ) );
+
+    res.json ( parent );
+});
+
 app.get ( '/api/transactions/:id', function ( req, res ) {
 	res.render ( 'transactions', {
-		title:"Statement for " + manager.getAccountName ( req.params.id ),
+	    title: manager.getAccountName(req.params.id),
+	    balance: manager.getAccountBalance ( req.params.id ),
 		transactions:manager.getStatement ( req.params.id )
 	});
 });
 
 app.get ( '/', function ( req, res ) {
-	res.render ( 'accounts', { title:"My Accounts", accounts:manager.getAccounts() } );
+    res.render('accounts', {
+        title: "My Accounts",
+        accounts: manager.getAccounts()
     });
+});
 
 app.listen ( app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));

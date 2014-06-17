@@ -8,7 +8,7 @@ suite ( "Transaction Tests", function () {
 
 		expect ( transaction ).to.be.ok;
 		expect ( transaction.amount ).to.equal ( 100 );
-		expect ( transaction.timestamp ).to.equal ( moment().format ( 'D MMM YYYY' ) )
+		expect ( transaction.timestamp ).to.equal ( moment().format ( 'DD MMM YYYY' ) )
 	});
 
 

@@ -9,7 +9,9 @@
 
 
 ## Developing
-
+How to run unit tests.
+Open a command line at the solution level
+mocha -u tdd -R spec
 
 
 ### Tools
