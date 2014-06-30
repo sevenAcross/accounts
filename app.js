@@ -23,9 +23,9 @@ var gasAccount = manager.createAccount ( billsAccount, "Gas", 200.00 );
 manager.transfer ( 50.00, gasAccount, electricityAccount );
 manager.transfer(25.00, electricityAccount, gasAccount);
 manager.transfer(1.23, currentAccount, gasAccount);
-manager.transfer(2.34, currentAccount, gasAccount);
+manager.transfer(2.34, currentAccount, electricityAccount);
 manager.transfer(3.45, currentAccount, gasAccount);
-manager.transfer(4.56, currentAccount, gasAccount);
+manager.transfer(4.56, currentAccount, electricityAccount);
 manager.transfer(5.67, currentAccount, gasAccount);
 
 hbs.registerHelper ( "negativeBalance", function ( balance ) {

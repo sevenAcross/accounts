@@ -1,4 +1,7 @@
-var expect = require ( "chai" ).expect;
+/// <reference path="../lib/AccountManager.js" />
+/// <reference path="node.js" />
+
+var expect = require("chai").expect;
 var accountManager = require ( "../lib/AccountManager" );
 var moment = require ( "moment");
 

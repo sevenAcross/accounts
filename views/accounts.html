@@ -1,6 +1,6 @@
-﻿<h1>{{title}}</h1>
+﻿<h1 class="text-center">{{title}}</h1>
 
-<div class="container col-md-2">
+<div >
     {{#each accounts}}
     <div class="row" style="margin-bottom:20px;">
         {{#if hasSubAccounts}}
@@ -15,7 +15,11 @@
                     {{/if}}
                 </div>
                 <div class="text-left col-md-offset-0 text-info" style="font-size:70%; margin-left:5%">Number</div>
+                {{#if negativeBalance}}
+                <div class="text-right col-md-offset-0" style="margin-right:5%; font-size:80%; color:red">Balance: £{{balance}}</div>
+                {{else}}
                 <div class="text-right col-md-offset-0" style="margin-right:5%; font-size:80%">Balance: £{{balance}}</div>
+                {{/if}}
             </a>
     </div>
     {{else}}

@@ -1,4 +1,4 @@
-﻿<div class="container-fluid col-sm-2">
+﻿<div >
     <div class="row text-center">{{title}}</div>
     <div class="row text-center">12345-67678909087</div>
     <div class="row text-left" style="margin-top:5px">Balance: £{{balance}}</div>
@@ -16,7 +16,12 @@
                 {{name}}
             </div>
             <div class="text-left" style="margin-left:5%">£&nbsp{{amount}}</div>
+            negativeBalance = {{negativeBalance}}
+            {{#if negativeBalance}}
+            <div class="text-right" style="margin-right:5%; color:red">Balance £{{balance}}</div>
+            {{else}}
             <div class="text-right" style="margin-right:5%">Balance £{{balance}}</div>
+            {{/if}}
         </div>
     </div>
     <hr />

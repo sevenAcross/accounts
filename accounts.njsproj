@@ -113,6 +113,7 @@
     <Compile Include="test\accountManagerTest.js" />
     <Compile Include="test\accountTest.js" />
     <Compile Include="test\transactionTest.js" />
+    <Content Include="test\chutzpah.json" />
     <Content Include="views\accounts.html" />
     <Content Include="views\layout.html" />
     <Content Include="views\test.html" />
