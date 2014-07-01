@@ -41,8 +41,9 @@ app.get ( '/api/accounts', function ( req, res ) {
 
 app.get ( '/api/accounts/:id', function ( req, res ) {
 	res.render ( 'accounts', {
-		title:"Sub Accounts of " + manager.getAccountName ( req.params.id ),
-		accounts:manager.getSubAccounts ( req.params.id )
+	    title: "Sub Accounts of " + manager.getAccountName(req.params.id),
+        parent: req.params.id,
+		accounts: manager.getSubAccounts ( req.params.id )
 		} );
 });
 
@@ -62,12 +63,10 @@ app.post ( "/api/accounts", function ( req, res ) {
     res.json ( parent );
 });
 
-app.get ( '/api/transactions/:id', function ( req, res ) {
-	res.render ( 'transactions', {
-	    title: manager.getAccountName(req.params.id),
-	    balance: manager.getAccountBalance ( req.params.id ),
-		transactions:manager.getStatement ( req.params.id )
-	});
+app.get('/api/transactions/:id', function (req, res) {
+    res.render('transactions', {
+        statement: manager.getStatement(req.params.id)
+    });
 });
 
 app.get ( '/', function ( req, res ) {

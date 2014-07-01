@@ -1,31 +1,39 @@
-﻿<h1 class="text-center">{{title}}</h1>
+﻿<h2 class="text-center">{{title}}</h2>
 
-<div >
+<div>
     {{#each accounts}}
     <div class="row" style="margin-bottom:20px;">
         {{#if hasSubAccounts}}
-        <a class="btn btn-lg btn-info btn-block" href="/api/accounts/{{id}}">
-            {{else}}
-            <a class="btn btn-lg btn-info btn-block" href="/api/transactions/{{id}}">
-                {{/if}}
-                <div class="text-left" style="font-size:110%; margin-left:5%">
-                    <b>{{name}}</b>
-                    {{#if hasSubAccounts}}
-                    &nbsp({{numberOfSubAccounts}})
+            <a class="btn btn-lg btn-block" style="background:#b3ecef" href="/api/accounts/{{id}}">
+        {{else}}
+                <a class="btn btn-lg btn-block" style="background:#b3ecef" href="/api/transactions/{{id}}">
                     {{/if}}
-                </div>
-                <div class="text-left col-md-offset-0 text-info" style="font-size:70%; margin-left:5%">Number</div>
-                {{#if negativeBalance}}
-                <div class="text-right col-md-offset-0" style="margin-right:5%; font-size:80%; color:red">Balance: £{{balance}}</div>
-                {{else}}
-                <div class="text-right col-md-offset-0" style="margin-right:5%; font-size:80%">Balance: £{{balance}}</div>
-                {{/if}}
-            </a>
+
+                    <div class="text-left" style="font-size:110%; color:#2f635d; margin-left:5%">
+                        <b>{{name}}</b>
+                        {{#if hasSubAccounts}}
+                        &nbsp({{numberOfSubAccounts}})
+                        {{/if}}
+                    </div>
+                    <div class="text-left col-md-offset-0 text-info" style="font-size:70%; color:#2f635d; margin-left:5%">Number</div>
+                    {{#if negativeBalance}}
+                    <div class="text-right col-md-offset-0" style="margin-right:5%; font-size:80%; color:red">Balance: £{{balance}}</div>
+                    {{else}}
+                    <div class="text-right col-md-offset-0" style="margin-right:5%; color:#2f635d; font-size:80%">Balance: £{{balance}}</div>
+                    {{/if}}
+                </a>
     </div>
     {{else}}
     <p>No Content</p>
     {{/each}}
     <div class="row">
-        <a class="btn btn-info btn-block" href="/api/accounts/new">Add Account</a>
+        <a class="btn btn-block" style="background:#b3ecef; color:#2f635d;" href="/api/accounts/new">
+        <span class="glyphicon glyphicon-plus"></span>&nbsp
+            {{#if parent}}
+            Add Sub-account
+            {{else}}
+            Add Account
+            {{/if}}
+        </a>
     </div>
 </div>
