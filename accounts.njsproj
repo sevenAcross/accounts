@@ -116,6 +116,7 @@
     <Content Include="test\chutzpah.json" />
     <Content Include="views\accounts.html" />
     <Content Include="views\layout.html" />
+    <Content Include="views\newAccount.html" />
     <Content Include="views\test.html" />
     <Content Include="views\transactions.html" />
     <Content Include="public\stylesheets\style.css" />

@@ -39,13 +39,21 @@ app.get ( '/api/accounts', function ( req, res ) {
 	res.render ( 'accounts', { title:"My Accounts", accounts:manager.getAccounts() } );
 });
 
-app.get ( '/api/accounts/:id', function ( req, res ) {
+app.get('/api/accounts/new/:id', function (req, res) {
+    res.render('newAccount', {
+        parent: req.params.id,
+        parentName: manager.getAccountName(req.params.id)
+    });
+});
+
+app.get('/api/accounts/:id', function (req, res) {
 	res.render ( 'accounts', {
 	    title: "Sub Accounts of " + manager.getAccountName(req.params.id),
         parent: req.params.id,
 		accounts: manager.getSubAccounts ( req.params.id )
 		} );
 });
+
 
 app.post ( "/api/accounts", function ( req, res ) {
     if ( ! req.body.hasOwnProperty ( 'parent' ) ||
@@ -56,11 +64,24 @@ app.post ( "/api/accounts", function ( req, res ) {
     }
     
     var parent = Number ( req.body.parent );
-    if ( isNaN ( parent ) == true )
+    if (isNaN(parent) == true)
         parent = null;
+    else
+        if (parent < 0)
+            parent = null;
+
     manager.createAccount ( parent, req.body.name, Number ( req.body.balance ) );
 
-    res.json ( parent );
+    if ( parent == null )
+        res.render('accounts', { title: "My Accounts", accounts: manager.getAccounts() });
+    else
+        res.render('accounts', {
+            title: "Sub Accounts of " + manager.getAccountName(parent),
+            parent: parent,
+            accounts: manager.getSubAccounts(parent)
+        });
+
+    //    res.json ( parent );
 });
 
 app.get('/api/transactions/:id', function (req, res) {

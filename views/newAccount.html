@@ -1,0 +1,12 @@
+﻿<h2 class="text-center">Add account to {{parentName}}</h2>
+
+<div>
+    <div class="row">
+        <form id="newAccountForm" action="/api/accounts" method="post">
+            <input type="hidden" name="parent" value="{{parent}}" />
+            <input type="text" name="name" />
+            <input type="text" name="balance" />
+            <input type="submit" value="fred">
+        </form>
+    </div>
+</div>

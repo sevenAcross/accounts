@@ -27,7 +27,7 @@
     <p>No Content</p>
     {{/each}}
     <div class="row">
-        <a class="btn btn-block" style="background:#b3ecef; color:#2f635d;" href="/api/accounts/new">
+        <a class="btn btn-block" style="background:#b3ecef; color:#2f635d;" href="/api/accounts/new/{{#if parent}}{{parent}}{{else}}-1{{/if}}">
         <span class="glyphicon glyphicon-plus"></span>&nbsp
             {{#if parent}}
             Add Sub-account
